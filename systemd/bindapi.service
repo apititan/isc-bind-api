@@ -1,0 +1,12 @@
+[Unit]
+Description=BIND Rest API
+After=network.target
+
+[Service]
+Type=simple
+User=bindapi
+ExecStart=/bin/bash /opt/bindapi/systemd/runapi.bash
+Restart=on-failure
+
+[Install]
+WantedBy=network.target
