@@ -1,12 +1,12 @@
 # DNS API
 
-This project aims to create a REST API for [https://www.isc.org/bind/](BIND DNS), the Internet's de-facto DNS software, using [https://www.dnspython.org/](Dnspython), a DNS toolkit for Python. It is useful for queries, zone transfers, dynamic updates, nameserver testing, and a variety of other tasks.
+This project aims to create a REST API for (BIND DNS)[https://www.isc.org/bind/], the Internet's de-facto DNS software, using (Dnspython)[https://www.dnspython.org/], a DNS toolkit for Python. It is useful for queries, zone transfers, dynamic updates, nameserver testing, and a variety of other tasks.
 
 Dnspython provides both high and low level DNS access. The high level classes search for data by name, type, and class and return an answer set. The low-level classes allow for the manipulation of DNS zones, messages, names, and records directly. Almost every RR type is supported.
 
-dnspython was created at Nominum [https://www.nominum.comwhere ] to test DNS nameservers.
+dnspython was created at (Nominum)[https://www.nominum.com]where to test DNS nameservers.
 
-While we in search for  the tool kit for developing this API we have inspired by [https://gitlab.com/jaytuck/bind-rest-api] (this great project) where it has used FastAPI Python  framework to develop an API for BIND DNS. 
+While we in search for  the tool kit for developing this API we have inspired by (this great project) [https://gitlab.com/jaytuck/bind-rest-api] where it has used FastAPI Python  framework to develop an API for BIND DNS. 
 
 # About FastAPI 
 
