@@ -58,5 +58,5 @@ Please take a look at the screenshots below.
 
 ## Getting set up and running
 
-Please see BIND API documentation[bindapi.apititan.works](https://bindapi.apititan.works) for a detailed DNS API user guide.
+Please see BIND API documentation [bindapi.apititan.works](https://bindapi.apititan.works) for a detailed DNS API user guide.
 
