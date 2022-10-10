@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "bind-rest-api"
-version = "1.3.0"
-description = "Rest API for Bind9 built with FastAPI"
-authors = ["Jay Tuckey <jay.tuckey@cdu.edu.au>"]
+name = "bindapi"
+version = "1.0.0"
+description = "Bind9 Rest API built with FastAPI"
+authors = ["Chinthaka Deshapriya <chinthaka.Deshapriya@gmail.com>"]
 license = "GPL3"
 
 [tool.poetry.dependencies]

@@ -34,17 +34,17 @@ API_KEYS      = {
 
 # Configure the logging operation. 
 formatter = logging.Formatter(f"%(asctime)s == {LOGGING_APPLICATION_NAME} == %(message)s", datefmt='%Y-%m-%dT%H:%M%z')
-auditlogger = logging.getLogger('bind-api.audit')
+auditlogger = logging.getLogger('bindapi.audit')
 auditlogger.setLevel(logging.INFO)
-handler1 = logging.handlers.TimedRotatingFileHandler(f'{LOGGING_DIR}/dns-api-audit.log', when='D', interval=7)
+handler1 = logging.handlers.TimedRotatingFileHandler(f'{LOGGING_DIR}/bindapi-audit.log', when='D', interval=7)
 handler1.setFormatter(formatter)
 auditlogger.addHandler(handler1)
-logger = logging.getLogger('bind-api')
+logger = logging.getLogger('bindapi')
 logger.setLevel(logging.DEBUG)
-handler2 = logging.handlers.RotatingFileHandler(f'{LOGGING_DIR}/dns-api-debug.log', maxBytes=(1024 * 1024 * 100), backupCount=10)
+handler2 = logging.handlers.RotatingFileHandler(f'{LOGGING_DIR}/bindapi-debug.log', maxBytes=(1024 * 1024 * 100), backupCount=10)
 handler2.setFormatter(formatter)
 logger.addHandler(handler2)
-logger.debug('starting up')
+logger.debug('Starting up')
 
 # Record types that can be used for CRUD operations.
 class RecordType(str, Enum):
@@ -73,7 +73,7 @@ tcpquery = functools.partial(dns.asyncquery.tcp, where=DNS_SERVER)
 qualify = lambda s: f'{s}.' if not s.endswith('.') else s
 
 # Set up app
-app = FastAPI(title='bind-rest-api', version='v1.3.0')
+app = FastAPI(title='bindapi', version='v1.0.0')
 
 
 # Set up API Key authorization
