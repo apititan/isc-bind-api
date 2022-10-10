@@ -41,7 +41,7 @@ The key features are:
 
 This is a BIND API that supports the following core functions and others:
 
-* It can  export a BIND  zone file to JSON  file
+* It can  export a BIND  zone file to a JSON  file
 * It utilises the HTTP GET method to locate a specific DNS record.
 * It utilises the HTTP PUT  method to replace or update a DNS record
 * It utilises the HTTP DELETE method for deleting a DNS record
@@ -58,5 +58,5 @@ Please take a look at the screenshots below.
 
 ## Getting set up and running
 
-Please see [https://dnaspi.apititan.works] for a detailed DNS API user guide.
+Please see BIND API documentation[bindapi.apititan.works](https://bindapi.apititan.works) for a detailed DNS API user guide.
 
