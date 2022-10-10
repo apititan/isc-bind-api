@@ -44,7 +44,7 @@ sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io
 ```
 
-**Add your user account to docker group.\
+**Add your user account to docker group.**
 
 ```
 sudo usermod -aG docker $USER
@@ -55,13 +55,13 @@ newgrp
 During a login session, the ```newgrp``` command is used to change the current group ID. If the - flag is specified, the user's environment will be reinitialized as if the user had logged in; otherwise, the current environment, including the current working directory, will remain unchanged.
 
 
-**Check the Docker version to ensure proper installation:***
+**Check the Docker version to ensure proper installation:**
 
 ```
 docker version
 ```
 
-## Step 4: Set up Docker Compose.**
+## Step 4: Set up Docker Compose
 
 Docker Compose must be installed because we will be using it to deploy several containers with our ```bindapi``` container.
 
@@ -70,6 +70,24 @@ We use ```curl``` to install the most recent Compose on your Linux machine.
 ```
 curl -s https://api.github.com/repos/docker/compose/releases/latest | grep browser_download_url  | grep docker-compose-linux-x86_64 | cut -d '"' -f 4 | wget -qi -
 
+```
+
+**Make the binary file executable.**
+
+```
+chmod +x docker-compose-linux-x86_64
+```
+
+**Move the file to your PATH.**
+
+```
+sudo mv docker-compose-linux-x86_64 /usr/local/bin/docker-compose
+```
+
+**Confirm the version.**
+
+```
+docker-compose version
 ```
 
 
