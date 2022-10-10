@@ -25,43 +25,43 @@ Remove any previous versions of Docker and their dependencies.
 sudo apt remove docker docker-engine docker.io containerd runc
 ```
 
-**Import Docker repository GPG key:
+**Import Docker repository GPG key:**
 
 ```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
 ```
 
-**The Docker CE repository can then be added to Ubuntu.
+**The Docker CE repository can then be added to Ubuntu.**
 
 ```
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
 
-**Finally install Docker CE on Ubuntu22.04|20.04|18.04:
+**Finally install Docker CE on Ubuntu22.04|20.04|18.04:**
 
 ```
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io
 ```
 
-**Add your user account to docker group.
+**Add your user account to docker group.\
 
 ```
 sudo usermod -aG docker $USER
 newgrp
 ```
-**NOTE
+**NOTE**
 
 During a login session, the ```newgrp``` command is used to change the current group ID. If the - flag is specified, the user's environment will be reinitialized as if the user had logged in; otherwise, the current environment, including the current working directory, will remain unchanged.
 
 
-**Check the Docker version to ensure proper installation:
+**Check the Docker version to ensure proper installation:***
 
 ```
 docker version
 ```
 
-## Step 4: Set up Docker Compose.
+## Step 4: Set up Docker Compose.**
 
 Docker Compose must be installed because we will be using it to deploy several containers with our ```bindapi``` container.
 
