@@ -90,6 +90,23 @@ sudo mv docker-compose-linux-x86_64 /usr/local/bin/docker-compose
 docker-compose version
 ```
 
+## Configure Compose Command-line completion
+
+Compose supports bash and zsh shell command completion. This is a very useful command-line productivity option.
+
+**For Bash users**
+
+Place the completion script in ```/etc/bash_completion.d/.``
+
+```
+sudo curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
+```
+Source the file or re-login to enjoy completion feature.
+
+```
+source /etc/bash_completion.d/docker-compose
+```
+
 
 
 
