@@ -19,7 +19,7 @@ from fastapi.security.api_key import APIKey, APIKeyHeader
 from pydantic import BaseModel, Field
 
 
-# Create some global variables.
+# Create required global variables.
 DNS_SERVER = os.environ['BIND_SERVER']
 LOGGING_APPLICATION_NAME = os.environ['LOGGING_APPLICATION_NAME']
 LOGGING_DIR = os.environ.get("LOGGING_DIR", "./logs")
@@ -32,16 +32,16 @@ API_KEYS      = {
 }
 
 
-# Configure the logging operation. 
+# Set up the logging process. 
 formatter = logging.Formatter(f"%(asctime)s == {LOGGING_APPLICATION_NAME} == %(message)s", datefmt='%Y-%m-%dT%H:%M%z')
-auditlogger = logging.getLogger('bindapi.audit')
+auditlogger = logging.getLogger('pydnsapi.audit')
 auditlogger.setLevel(logging.INFO)
-handler1 = logging.handlers.TimedRotatingFileHandler(f'{LOGGING_DIR}/bindapi-audit.log', when='D', interval=7)
+handler1 = logging.handlers.TimedRotatingFileHandler(f'{LOGGING_DIR}/pydnsapi-audit.log', when='D', interval=7)
 handler1.setFormatter(formatter)
 auditlogger.addHandler(handler1)
-logger = logging.getLogger('bindapi')
+logger = logging.getLogger('pydnsapi')
 logger.setLevel(logging.DEBUG)
-handler2 = logging.handlers.RotatingFileHandler(f'{LOGGING_DIR}/bindapi-debug.log', maxBytes=(1024 * 1024 * 100), backupCount=10)
+handler2 = logging.handlers.RotatingFileHandler(f'{LOGGING_DIR}/pydnsapi-debug.log', maxBytes=(1024 * 1024 * 100), backupCount=10)
 handler2.setFormatter(formatter)
 logger.addHandler(handler2)
 logger.debug('Starting up')
@@ -69,11 +69,11 @@ HelperResponse = namedtuple('HelperResponse', 'domain action zone')
 asyncresolver = dns.asyncresolver.Resolver()
 asyncresolver.nameservers = [DNS_SERVER]
 tcpquery = functools.partial(dns.asyncquery.tcp, where=DNS_SERVER)
-# Used to properly fix unqualified domains
+# used to correct unqualified domains properly
 qualify = lambda s: f'{s}.' if not s.endswith('.') else s
 
-# Set up app
-app = FastAPI(title='bindapi', version='v1.0.0')
+# Set up the  app
+app = FastAPI(title='pydnsapi', version='v1.0.0')
 
 
 # Set up API Key authorization
