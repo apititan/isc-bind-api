@@ -1,4 +1,4 @@
-from python:3.9
+FROM python:3.9
 
 WORKDIR /app
 
@@ -14,5 +14,6 @@ RUN pip install poetry && poetry config virtualenvs.create false
 RUN poetry install --no-dev
 
 EXPOSE 8000
+
 CMD ["uvicorn","pydnsapi:app","--host=0.0.0.0","--port=8000"]
 
