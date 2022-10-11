@@ -11,7 +11,7 @@ RUN  mkdir /app/logs
 
 RUN pip install poetry && poetry config virtualenvs.create false
 
-RUN poetry install --no-dev
+RUN poetry install --only main
 
 EXPOSE 8000
 
