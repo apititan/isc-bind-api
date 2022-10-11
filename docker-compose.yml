@@ -1,0 +1,51 @@
+version: '3.6'
+services:
+  swag:
+    image: lscr.io/linuxserver/swag:latest
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Colombo
+      - URL=apititan.works
+      - VALIDATION=http
+      - SUBDOMAINS=bindapidemo  #optional
+      - CERTPROVIDER= #optional
+      - DNSPLUGIN= #optional
+      - PROPAGATION= #optional
+      - DUCKDNSTOKEN= #optional
+      - EMAIL= chinthaka.deshapriya@gmail.com #optional
+      - ONLY_SUBDOMAINS=true #optional
+      - EXTRA_DOMAINS= #optional
+      - STAGING=false #optional
+    volumes:
+      - ./appdata/swag/config:/config
+    networks:
+      bindapi-net:
+        - ipv4_address: 172.25.0.5
+    ports:
+      - 443:443
+      - 80:80 #optional
+    restart: always
+
+  bindapi:
+    image: apititan/bindapi
+    build:
+      context: docker
+    restart: always
+    ports:
+      - "8000:8000"
+    networks:
+      bindapi-net:
+        - ipv4_address: 172.25.0.10
+
+networks:
+  bindapi-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/24
+          gateway: 172.25.0.1
+         
