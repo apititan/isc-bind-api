@@ -1,17 +1,4 @@
 #!/usr/bin/env sh
-# HELP: 
-# With this bind API, you can issue letsEncrypt certificates using this shell script.
-# For more information on the acme.sh tool, please visit https://acme.sh.
-# In your Linux/MacOS terminal, type the following command to generate 
-# a 64bit secure API key  to be used as your BIND REST API KEY. 
-# It generates a 64bit based64 encoded key.
-# Execute: export bindrestapi_key=$(dd if=/dev/urandom bs=64 count=1 status=none | base64) 
-# Next, use the following command to export your BIND REST API URL.
-# Execute: export bindrestapi_url="https://dnsapi.yourdomain.tld" for example.
-# 
-# The following is a full test command for the acme.sh tool.
-# Execute: ./acme.sh --insecure --issue --staging --debug 2 --domain yourdomain.tld --dns dns_bindrestapi | tee debug_run.log
-# Usage: add _acme-challenge.host.yourdomain.tld "XXXXXXXX"
 
 dns_bindrestapi_add() {
   fulldomain=$1
