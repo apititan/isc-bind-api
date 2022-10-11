@@ -6,7 +6,7 @@ authors = ["Chinthaka Deshapriya <chinthaka.Deshapriya@gmail.com>"]
 license = "GPL3"
 
 [tool.poetry.dependencies]
-python = "^3.6.3"
+python = "^3.7"
 dnspython = "^2.2.0"
 fastapi = "^0.72.0"
 uvicorn = "^0.17.0"
