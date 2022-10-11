@@ -162,7 +162,7 @@ async def create_record(
             await tcpquery(helper.action)
         except Exception:
             logger.debug(traceback.format_exc())
-            raise HTTPException(500, 'DNS transaction failed; please review logs')
+            raise HTTPException(500, 'Failure of a DNS transaction; please check logs')
 
         auditlogger.info(f'CREATE {helper.domain} {record.rrtype} {api_key_name} -> {helper.domain} record {record} for key {api_key_name}')
     except:
