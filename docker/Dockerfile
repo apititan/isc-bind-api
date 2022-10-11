@@ -2,8 +2,8 @@ FROM python:3.9
 
 WORKDIR /app
 
-COPY ../pyproject.toml /app/
-COPY ../pydnsapi /app/pydnsapi
+COPY pyproject.toml /app/
+COPY pydnsapi /app/pydnsapi
 
 # make the default logging dir
 
