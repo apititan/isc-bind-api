@@ -30,11 +30,19 @@ services:
       - 80:80 #optional
     restart: always
 
-  bindapi:
-    image: apititan/bindapi
-    build:
-      context: docker
+  pydnsapi:
+    image: apititan/pydnsapi
     restart: always
+    environment:
+      - BIND_SERVER=${BIND_SERVER}
+      - TSIG_USERNAME=${TSIG_USERNAME}
+      - TSIG_PASSWORD=${TSIG_PASSWORD}
+      - BIND_ALLOWED_ZONES=${BIND_ALLOWED_ZONES}
+      - API_KEY_FILE=${API_KEY_FILE}
+      - LOGGING_APPLICATION_NAME=${LOGGING_APPLICATION_NAME}
+      - LOGGING_DIR=${LOGGING_DIR}
+    volumes:
+      - ./appdata/pydnsapi/logs:/app/logs
     ports:
       - "8000:8000"
     networks:
