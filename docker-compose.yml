@@ -49,10 +49,10 @@ services:
       bindapi-net:
         ipv4_address: 172.25.0.10
     
-    bind9:
+  bind9:
     image: internetsystemsconsortium/bind9:9.18
     restart: always
-    environment:
+    #environment:
     volumes: 
       - ./appdata/bind9/etc/bind:/etc/bind
       - ./appdata/bind9/var/cache/bind:/var/cache/bind
