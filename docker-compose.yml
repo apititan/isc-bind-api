@@ -32,6 +32,7 @@ services:
 
   pydnsapi:
     image: apititan/pydnsapi
+    container_name: pydnsapi
     restart: always
     environment:
       - BIND_SERVER=${BIND_SERVER}
@@ -49,24 +50,7 @@ services:
     networks:
       bindapi-net:
         ipv4_address: 172.25.0.10
-    
-  bind9:
-    image: internetsystemsconsortium/bind9:9.18
-    restart: always
-    volumes:
-      - ./appdata/bind9/var/cache/bind:/var/cache/bind:rw
-      - ./appdata/bind9/var/lib/bind:/var/lib/bind:rw
-      - ./appdata/bind9/var/log:/var/log  
-      - ./config/bind9/:/etc/bind:rw  
-    ports:
-     - 53:53/tcp
-     - 53:53/udp
-     - 127.0.0.1:953:953/tcp
-      
-    networks:
-      bindapi-net:
-        ipv4_address: 172.25.0.20
-     
+
 networks:
   bindapi-net:
     driver: bridge
