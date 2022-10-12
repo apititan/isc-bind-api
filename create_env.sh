@@ -2,7 +2,7 @@ mkdir -p -m 700 .sec
 tsig-keygen pydnsapi-bind9  > ./.sec/pydnsapi-bind9.key
 TSIG_PASSWORD=$(grep secret .sec/pydnsapi-bind9.key |  cut -f2 -d \")
 pydns_api_key=$(dd if=/dev/urandom bs=64 count=1 status=none | base64)
-echo "pydnsapi-key, $pydns_api_key" > ./apikeys.pass
+echo "pydnsapi-key,$pydns_api_key" > ./apikeys.pass
 chmod 600 apikeys.pass
 cp ./.sec/pydnsapi-bind9.key ./config/bind9/
 
