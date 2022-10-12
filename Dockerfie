@@ -1,26 +1,23 @@
-# temp stage
-FROM python:3.9-slim as builder
+FROM python:3-slim as python
+ENV PYTHONUNBUFFERED=true
 
 WORKDIR /app
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+FROM python as poetry
+ENV POETRY_HOME=/opt/poetry
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
+ENV PATH="$POETRY_HOME/bin:$PATH"
+RUN python -c 'from urllib.request import urlopen; print(urlopen("https://install.python-poetry.org").read().decode())' | python -
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends gcc
+COPY pyproject.toml /app/
+COPY pydnsapi /app/pydnsapi
 
-RUN python -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
+RUN poetry install --no-interaction --no-ansi -vvv
 
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+FROM python as runtime
+ENV PATH="/app/.venv/bin:$PATH"
+COPY --from=poetry /app /app
 
+EXPOSE 8000
 
-# final stage
-FROM python:3.9-slim
-
-COPY --from=builder /opt/venv /opt/venv
-
-WORKDIR /app
-
-ENV PATH="/opt/venv/bin:$PATH"
+CMD ["uvicorn","pydnsapi:app","--host=0.0.0.0","--port=8000"]
