@@ -11,7 +11,7 @@ services:
       - TZ=Asia/Colombo
       - URL=apititan.works
       - VALIDATION=http
-      - SUBDOMAINS=bindapidemom, nsapi1  #optional
+      - SUBDOMAINS=bindapidemo, nsapi1  #optional
       - CERTPROVIDER= #optional
       - DNSPLUGIN= #optional
       - PROPAGATION= #optional
