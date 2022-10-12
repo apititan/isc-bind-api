@@ -227,5 +227,3 @@ async def delete_record_type(
         auditlogger.info(f'FAILED:DELETE {helper.domain} {",".join(recordtypes)} {api_key_name} -> {helper.domain} record {recordtypes} for key {api_key_name}')
         raise        
         
-def run(host="0.0.0.0", port=8000):
-    app.run(host=host, port=port)
