@@ -57,7 +57,7 @@ services:
       - ./appdata/bind9/var/cache/bind:/var/cache/bind:rw
       - ./appdata/bind9/var/lib/bind:/var/lib/bind:rw
       - ./appdata/bind9/var/log:/var/log  
-      - ./config/bind9/:/etc/bind/   
+      - ./config/bind9/:/etc/bind:rw  
     ports:
      - 53:53/tcp
      - 53:53/udp
