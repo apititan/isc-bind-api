@@ -1,3 +1,0 @@
-import pydnsapi
-
-pydnsapi.run()
