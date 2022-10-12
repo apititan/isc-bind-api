@@ -55,11 +55,11 @@ services:
     restart: always
     #environment:
     volumes: 
-      - ./appdata/bind9/etc/bind:/etc/bind
+      # - ./appdata/bind9/etc/bind:/etc/bind
       - ./appdata/bind9/var/cache/bind:/var/cache/bind
       - ./appdata/bind9/var/lib/bind:/var/lib/bind
       - ./appdata/bind9/var/log:/var/log  
-      - ./config/bind9/named.conf:/etc/bind/named.conf
+      - ./config/bind9/:/etc/bind/
       - ./config/bind9/pydnsapi-bind9.conf:/etc/bind/pydnsapi-bind9.conf      
     networks:
       bindapi-net:
