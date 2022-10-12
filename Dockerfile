@@ -12,6 +12,9 @@ RUN python -c 'from urllib.request import urlopen; print(urlopen("https://instal
 COPY pyproject.toml /app/
 COPY pydnsapi /app/pydnsapi
 
+# make the default logging dir
+RUN  mkdir /app/logs
+
 RUN poetry install --no-interaction --no-ansi -vvv
 
 FROM python as runtime
@@ -20,4 +23,4 @@ COPY --from=poetry /app /app
 
 EXPOSE 8000
 
-CMD ["uvicorn", "pydnsapi:app"]
+CMD ["uvicorn", "pydnsapi:run"]
