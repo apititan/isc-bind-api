@@ -4,12 +4,6 @@ version = "1.0.0"
 description = "Bind9 Rest API built with FastAPI and Dnspython"
 authors = ["Chinthaka Deshapriya <chinthaka.Deshapriya@gmail.com>"]
 license = "GPL3"
-packages = [
-    { include = "pydnsapi" }
-]
-
-[tool.poetry.scripts]
-pydnsapi = 'pydnsapi:run'
 
 [tool.poetry.dependencies]
 python = "^3.9"
