@@ -24,7 +24,7 @@ services:
       - ./appdata/swag/config:/config
     networks:
       bindapi-net:
-        - ipv4_address: 172.25.0.5
+        ipv4_address: 172.25.0.5
     ports:
       - 443:443
       - 80:80 #optional
@@ -47,7 +47,7 @@ services:
       - "8000:8000"
     networks:
       bindapi-net:
-        - ipv4_address: 172.25.0.10
+        ipv4_address: 172.25.0.10
     
     bind9:
     image: internetsystemsconsortium/bind9:9.18
@@ -62,13 +62,13 @@ services:
       - ./config/bind/pydnsapi-bind9.conf:/etc/bind/pydnsapi-bind9.conf      
     networks:
       bindapi-net:
-        - ipv4_address: 172.25.0.20
+        ipv4_address: 172.25.0.20
      
 networks:
   bindapi-net:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.25.0.0/24
+        - subnet: 172.25.0.0/16
           gateway: 172.25.0.1
          
