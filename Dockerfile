@@ -20,4 +20,4 @@ COPY --from=poetry /app /app
 
 EXPOSE 8000
 
-CMD ["uvicorn","pydnsapi"]
+CMD ["uvicorn", "pydnsapi:app"]
