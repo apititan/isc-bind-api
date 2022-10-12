@@ -18,7 +18,6 @@ from fastapi import FastAPI, HTTPException, Security, Depends, Query, Path
 from fastapi.security.api_key import APIKey, APIKeyHeader
 from pydantic import BaseModel, Field
 
-
 # Create required global variables.
 DNS_SERVER = os.environ['BIND_SERVER']
 LOGGING_APPLICATION_NAME = os.environ['LOGGING_APPLICATION_NAME']
