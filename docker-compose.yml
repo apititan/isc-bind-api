@@ -43,6 +43,7 @@ services:
       - LOGGING_DIR=${LOGGING_DIR}
     volumes:
       - ./appdata/pydnsapi/logs:/app/logs
+      - ./apikeys.pass:/app/pydnsapi/apikeys.pass
     ports:
       - "8000:8000"
     networks:
