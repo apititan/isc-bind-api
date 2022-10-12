@@ -53,14 +53,15 @@ services:
   bind9:
     image: internetsystemsconsortium/bind9:9.18
     restart: always
-    #environment:
-    volumes: 
-      # - ./appdata/bind9/etc/bind:/etc/bind
-      - ./appdata/bind9/var/cache/bind:/var/cache/bind
-      - ./appdata/bind9/var/lib/bind:/var/lib/bind
+    volumes:
+      - ./appdata/bind9/var/cache/bind:/var/cache/bind:rw
+      - ./appdata/bind9/var/lib/bind:/var/lib/bind:rw
       - ./appdata/bind9/var/log:/var/log  
       - ./config/bind9/:/etc/bind/
-      - ./config/bind9/pydnsapi-bind9.conf:/etc/bind/pydnsapi-bind9.conf      
+    ports:
+     - 53:53/tcp
+     - 53:53/udp
+      
     networks:
       bindapi-net:
         ipv4_address: 172.25.0.20
