@@ -5,7 +5,7 @@ Visit https://acme.sh for additional details on the acme.sh utility.
 Enter the following command in your Linux or MacOS terminal to create a 64-bit secure API 
 key that will be used as your ```pydns_api_key```. It creates a key that is 64 bit and based64 encoded.
 ```
-export pydns_api_key=$(dd if=/dev/urandom bs=64 count=1 status=none | base64) 
+source  ../.env
 ```
 Next, use the following command to export your pydns_api_url. for example.
 
