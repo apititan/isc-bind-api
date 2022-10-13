@@ -1,5 +1,7 @@
 # Keys are in format:
 # keyname,keypass
 # Lines starting with # are ignored
-# Make sure to generate very long apikeys, 64 characters at least
-testkey,hithere
+# Make sure to generate very long apikeys, 64 characters
+# The command below generates a 64 charcter long random string
+#
+# export pydns_api_pass=$(date | sha256sum | base64 | head -c 64; echo)
