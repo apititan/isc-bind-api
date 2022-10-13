@@ -85,7 +85,10 @@ async def check_api_key(api_key_header: str = Security(APIKeyHeader(name='X-Api-
 
 @app.get('/dns/zone/{zone_name}')
 def get_zone(zone_name: str = Path(..., example='example.org.'), api_key_name: APIKey = Depends(check_api_key)):
-    '''Using this method, you can obtain the JSON representation of an entire DNS zone.
+    '''To read (or retrieve) a representation of a resource, use the HTTP GET method. 
+       GET returns a representation in JSON and an HTTP response status code of 200 
+       in the event of success (or non-error) (OK). In our scenario, we receive a 
+       JSON dump of the whole ZONE configuration file.
     axfr
     '''
     logger.debug(f'api key {api_key_name} requested zone {zone_name}')
