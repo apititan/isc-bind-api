@@ -1,18 +1,18 @@
 #!/usr/bin/env sh
 
-dns_bindrestapi_add() {
+pydnsapi_add() {
   fulldomain=$1
   txtvalue=$2
 
-  if [ "$bindrestapi_key" ]; then
-    _saveaccountconf_mutable bindrestapi_key "$bindrestapi_key"
+  if [ "$bkey" ]; then
+    _saveaccountconf_mutable pydns_api_key "$pydns_api_key"
   else
-    _err "You did not provide a bindrestapi_key; please review the documentation again."    
+    _err "You did not provide a pydns_api_key; please review the documentation again."    
     return 1
   fi
 
   if [ "$bindrestapi_url" ]; then
-    _saveaccountconf_mutable bindrestapi_url "$bindrestapi_url"
+    _saveaccountconf_mutable pydns_api_url "$pydapi_url"
   else
     _err "You did not provide a bindrestapi url; please review the documentation again."
     return 1
