@@ -1,4 +1,4 @@
-# Installing Docker CE on Ubuntu 22.04|20.04|18.04
+## Installing Docker CE on Ubuntu 22.04|20.04|18.04
 
 Follow the steps in this article to install Docker CE on the Ubuntu 22.04|20.04|18.04 Linux distribution. Docker Engine is a container runtime engine that lets you package your applications and their dependencies into a standardized unit for software development and distribution.
 
