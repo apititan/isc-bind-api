@@ -1,3 +1,9 @@
+# About API Titan 
+
+Today, every company is a software company; we use software every day; consider Uber, which is merely an app. BIND DNS, Postfix, Apache, Dovecot, and many more are over 20 years old and are still actively used in industry today. Almost all of these software setups have been automated by directly altering configuration files with automation tools such as Ansible, Puppet, and others. While sysadmins have some relief due to the idempotent nature of these tools, they are required to repeat the configurations as many times as they like. If something goes wrong, it is exceptionally difficult to debug because the same software is configured in so many different ways across Linux distributions, the default OS on which these pieces of software are running. There is no certainty that misconfiguration will occur. There is no certainty that a misconfiguration would compromise security or performance.There is no certainty that a misconfiguration would compromise security or performance.
+
+
+
 # DNS API
 
 This project aims to create a REST API for [BIND DNS](https://www.isc.org/bind/), the Internet's de-facto DNS software, using [Dnspython](https://www.dnspython.org/), a DNS toolkit for Python. It is useful for queries, zone transfers, dynamic updates, nameserver testing, and a variety of other tasks.
