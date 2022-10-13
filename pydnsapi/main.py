@@ -58,7 +58,7 @@ class RecordType(str, Enum):
 
 # Record
 class Record(BaseModel):
-    response: str = Field(..., example='10.9.1.135')
+    response: str = Field(..., example='172.25.0.10')
     rrtype: RecordType
     ttl: int = Field(3600, example=3600)
 
@@ -129,7 +129,7 @@ async def get_record(domain: str = Path(..., example='server.example.org.'), rec
     logger.debug(f'api key {api_key_name} requested domain records {domain} with types {record_type}')
 
     if not domain.endswith(tuple(VALID_ZONES)):
-        raise HTTPException(400, 'domain not permitted')
+        raise HTTPException(400, 'domain is not permitted')
     
     records = defaultdict(list)
     for t in record_type:
@@ -149,7 +149,7 @@ async def dns_update_helper(domain: str = Path(..., example='server.example.org.
         if domain.endswith(valid_zone):
             action = dns.update.Update(valid_zone, keyring=TSIG)
             return HelperResponse(domain=domain, action=action, zone=valid_zone)
-    raise HTTPException(400, 'domain zone not permitted')
+    raise HTTPException(400, 'domain zone is not permitted')
 
 
 @app.post('/dns/record/{domain}')
